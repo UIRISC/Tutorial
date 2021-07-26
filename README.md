@@ -8,16 +8,16 @@ This blog is written by **Neovim** and **Visual Studio Code**. You may need to c
 
 This blog will be the very first repository in this organization for facilitating us doing research well. How to be a successful Ph.D student is as same as how to do your research successfully. I was enlightened by [[Tutorial by Mark Dredze]](https://www.cs.jhu.edu/~mdredze/publications/HowtoBeaSuccessfulPhDStudent.1_1.pdf), hoping it could enlighten you either.
 
-This tutorial will divided into **three parts**. As Mark said, mastering some technical tools will help you effectively conduct successful research such as Make, Bash configuration, vi/vim etc.. I will share three useful technical tools can help you control your code or files, deploy your code on server, and compile your own paper or report with git, Unix basic, and LaTeX basic respectively.
+This tutorial will divided into **three parts**. As Mark said, mastering some technical tools will help you effectively conduct successful research such as Make, Bash configuration, vi/vim etc.. I will share three useful technical tools can help you control your code or files, deploy your code on server, and compile your own paper or report with git basic, Unix basic, and LaTeX basic respectively.
 
 **All the notes are summarized through my own actual use. There must be many mistakes. Welcome to point out and welcome to submit a PR.**
 
 - [Tutorial](#tutorial)
-  - [1. Git](#1-git)
+  - [1. Git basic](#1-git-basic)
   - [2. Unix basic](#2-unix-basic)
   - [3. LaTeX basic](#3-latex-basic)
 
-## 1. Git
+## 1. Git basic
 
 You don't need to know how git works and what difference between git and other version control tools (Definitly, if you want to know the background and the very foundemantal scheme of git, this book is recommanded *Git Pro*). Just memory the usage of git and use it frequently.
 
@@ -89,5 +89,57 @@ $ git push # push to remote repository
 ```
 
 ## 2. Unix basic
+
+**Shut down & Reboot:**
+```shell
+$ shutdown -h now / time # shutdown immediately / after time
+$ reboot # reboot
+```
+
+**Check document:**
+```shell
+$ shutdown --help
+$ man shutdown
+```
+
+**Change directory:**
+```shell
+$ cd directory/ # change to directory in current path
+$ cd ~# change current path to home directory
+$ cd ../ # change to parent directory
+```
+
+**Check files:**
+```shell
+$ ls # list all files in current directory, -a for hidden files
+```
+
+**Directory manipulate:**
+```shell
+$ mkdir directory # create directory in certain path
+$ rm directory # delete directory, -r for iterative, -f for force
+$ mv directory /new_directory # change name or move to another directory
+$ cp directory /new_directory # copy directory
+```
+
+**File manipulate:**
+```shell
+$ touch file # create file in certain path
+$ rm file # delete file, -f for force
+$ mv file /new_directory/new_file # change name or move to another directory
+$ cp file /new_directory/new_file # copy file
+$ vi/vim/nvim/nano/emacs file # edit file with vi-based / nano / emacs
+$ cat/ccat/bat file # view file in command line
+```
+
+**Change permission:**
+```shell
+chmod 111 file # r, w, and x means readable, writable, and executable respectively. -/d{---}{---}{---} means file / directory {user's permission} {group with user's permission} {other group's permission}
+```
+
+**Zip:**
+```shell
+tar [option] file.tar file1 file2 ... # -z for using gzip tools to zip files, -c for zip files, -x for unzip file, -v for display process of zip, -f for use certain file name
+```
 
 ## 3. LaTeX basic
