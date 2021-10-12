@@ -2,7 +2,7 @@
 
 > **Author: [StevenChaoo](https://github.com/StevenChaoo)**
 
-![vscode](https://img.shields.io/badge/visual_studio_code-007acc?style=flat-square&logo=visual-studio-code&logoColor=ffffff)![neovim](https://img.shields.io/badge/Neovim-57a143?style=flat-square&logo=Neovim&logoColor=ffffff)![git](https://img.shields.io/badge/Git-f05032?style=flat-square&logo=git&logoColor=ffffff)
+![vscode](https://img.shields.io/badge/visual_studio_code-007acc?style=flat&logo=visual-studio-code&logoColor=ffffff) ![neovim](https://img.shields.io/badge/Neovim-57a143?style=flat&logo=Neovim&logoColor=ffffff) ![git](https://img.shields.io/badge/Git-f05032?style=flat&logo=git&logoColor=ffffff) ![visitors](https://visitor-badge.glitch.me/badge?style=flat-square&page_id=UIR-ISCIE.Tutorial&left_color=grey&right_color=blue)
 
 This blog is written by **Neovim** and **Visual Studio Code**. You may need to clone this repository to your local and use **Visual Studio Code** to read. ***Markdown Preview Enhanced*** plugin is necessary as well.
 
