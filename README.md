@@ -8,7 +8,7 @@ This blog is written by **Neovim** and **Visual Studio Code**. You may need to c
 
 This blog will be the very first repository in this organization for facilitating us doing research well. How to be a successful Ph.D student is as same as how to do your research successfully. I was enlightened by [[Tutorial by Mark Dredze]](https://www.cs.jhu.edu/~mdredze/publications/HowtoBeaSuccessfulPhDStudent.1_1.pdf), hoping it could enlighten you either.
 
-This tutorial will divided into **three parts**. As Mark said, mastering some technical tools will help you effectively conduct successful research such as Make, Bash configuration, vi/vim etc.. I will share three useful technical tools can help you control your code or files, deploy your code on server, and compile your own paper or report with git basic, Unix basic, and LaTeX basic respectively.
+This tutorial will divided into ~~**three**~~ **four parts**. As Mark said, mastering some technical tools will help you effectively conduct successful research such as Make, Bash configuration, vi/vim etc.. I will share four useful technical tools can help you control your code or files, deploy your code on server, compile your own paper or report and set proxy using Clash with *git basic*, *Unix basic*, *LaTeX basic* and *Clash for Linux* respectively.
 
 **All the notes are summarized through my own actual use. There must be many mistakes. Welcome to point out and welcome to submit a PR.**
 
@@ -16,6 +16,7 @@ This tutorial will divided into **three parts**. As Mark said, mastering some te
   - [1. Git basic](#1-git-basic)
   - [2. Unix basic](#2-unix-basic)
   - [3. LaTeX basic](#3-latex-basic)
+  - [4. Clash for Linux](#4-clash-for-linux)
 
 ## 1. Git basic
 
@@ -472,4 +473,69 @@ ab=ba   \notag     % \notag阻止编号
 \end{thebibliography}
 \end{document}
 % ----------------------------------------正文⬆️
+```
+
+## 4. Clash for Linux
+
+Step 1: Install.
+
+```bash
+# 0. Download clash-linux-amd64-vxx.xx.xx.gz from https://github.com/Dreamacro/clash/releases.
+cd {Download folder}
+# 1. Unzip the file.
+gunzip clash-linux-amd64-vxx.xx.xx.gz
+# 2. Move it to personal bin folder.
+sudo mv clash-linux-amd64-vxx.xx.xx /usr/local/bin/clash
+# 3. Add execute permission to clash.
+sudo chmod +x /usr/local/bin/clash
+# 4. Initial config.yaml and Country.mmdb
+clash
+```
+
+Step 2: Modify configurations.
+
+```bash
+# 0. Download your personal config.yaml file.
+cd {Download folder}
+# 1. Chaneg config.yaml
+mv config.yaml ~/.config/clash/config.yaml
+```
+
+Step 3: Start proxy at boot.
+
+```bash
+# 1. Move ~/.config/clash folder to /etc/
+sudo mv ~/.config/clash /etc
+# 2. Edit clash.service
+echo "[Unit]
+Description=Clash Daemon
+
+[Service]
+ExecStart=/usr/local/bin/clash -d /etc/clash/
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target" >> clash.service
+# 3. Move clash.service to /etc/systemd/system
+sudo mv clash.service /etc/systemd/system
+# 4. Enable clash.service
+sudo systemctl enable clash.service
+# 5. Start clash.service
+sudo systemctl start clash.service
+```
+
+Step 4: Set proxy mannually.
+
+```bash
+# 1. Start proxy.
+export all_proxy=sock5://127.0.0.1:xxxx
+# 2. Stop proxy.
+unset all_proxy
+```
+
+Or you can write following command in .zshrc or .bashrc.
+
+```zsh
+alias proxy="export all_proxy=sock5://127.0.0.1:xxxx"
+alias unproxy="unset all_proxy"
 ```
